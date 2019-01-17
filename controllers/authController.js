@@ -25,5 +25,6 @@ function createAndSendToken(user, res, message) {
 }
 
 module.exports = {
-  login, register
+  login,
+  register
 };

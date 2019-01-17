@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
   username: { type: String, required: true, uniquie: true},
   password: { type: String, required: true, unique: true },
   // confirmPassword: { type: String, required: true, match: 'password'}, DO I NEED THIS LINE? THINK THIS IS MATCHING
-  //                                                                      PASSWORD SO DONT THINK WOULD WORK ANYWAY 
+  //                                                                      PASSWORD SO DONT THINK WOULD WORK ANYWAY
   profileImg: { type: String }, // allow user to upload image? Sort in front end, Look into file stack
   currentResident: { type: String, required: true, enum: [
     'Yes',
@@ -21,9 +21,15 @@ const userSchema = new mongoose.Schema({
     'Yes',
     'No'
   ]},
+  whatPet: {type: String },
   specialRequirements: { type: String },
-  budget: { type: Number, required: true }
+  budget: { type: Number, required: true },
+  moveBy: {type: String} // Use https://www.cssscript.com/create-simple-event-calendar-javascript-caleandar-js/ in FRONT-END
 });
+
+userSchema.methods.validatePassword = function(password) {
+  return bcrypt.compareSync(password, this.password);
+};
 
 // Throw a validation error when duplicate emails are Created
 userSchema.plugin(require('mongoose-unique-validator'));
@@ -49,8 +55,5 @@ userSchema.pre('save', function hashPassword(next) {
   next();
 });
 
-userSchema.methods.validatePassword = function(password) {
-  return bcrypt.compareSync(password, this.password);
-};
 
 module.exports = mongoose.model('User', userSchema);
