@@ -13,27 +13,26 @@ router.route('/')
     res.send('Welcome to Express');
   });
 
+router.route(secureRoutes);
+
 // ROOMS
 router.route('/rooms')
   .get(roomController.index)
   .post(roomController.create);
+  
 router.route('/rooms/:id')
   .get(roomController.show)
   .put(roomController.update)
   .delete(roomController.delete);
 
-
-
-
-
-
+// USER
 router.route('/users')
   .get(userController.index);
+
 router.route('/users/:id')
   .get(userController.show)
   .put(userController.update)
   .delete(userController.delete);
-
 
 router.route('/register')
   .post(authController.register);
@@ -41,4 +40,4 @@ router.route('/register')
 router.route('/login')
   .post(authController.login);
 
-module.exports = Router;
+module.exports = router;
