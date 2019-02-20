@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const roomSchema = mongoose.Schema({
   location: { type: String, required: true }, // research on front end if can add application that will automatically find address & add to maps?
-  numOfResidents: { type: String, required: true },
+  numOfResidents: { type: Number, required: true },
   pets: { type: String, enum: [
     'Yes',
     'No'

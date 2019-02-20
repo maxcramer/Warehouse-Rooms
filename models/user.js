@@ -23,8 +23,8 @@ const userSchema = new mongoose.Schema({
   ]},
   whatPet: {type: String },
   specialRequirements: { type: String },
-  budget: { type: Number, required: true },
-  moveBy: {type: String} // Use https://www.cssscript.com/create-simple-event-calendar-javascript-caleandar-js/ in FRONT-END
+  budgetPerMonth: { type: Number, required: true },
+  moveBy: {type: Date} // Use https://www.cssscript.com/create-simple-event-calendar-javascript-caleandar-js/ in FRONT-END
 });
 
 userSchema.methods.validatePassword = function(password) {
