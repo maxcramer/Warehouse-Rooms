@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true},
   username: { type: String, required: true, uniquie: true},
-  password: { type: String, required: true, unique: true },
+  password: { type: String, required: true},
   // confirmPassword: { type: String, required: true, match: 'password'}, DO I NEED THIS LINE? THINK THIS IS MATCHING
   //                                                                      PASSWORD SO DONT THINK WOULD WORK ANYWAY
   profileImg: { type: String }, // allow user to upload image? Sort in front end, Look into file stack
