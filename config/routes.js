@@ -19,7 +19,7 @@ router.route(secureRoutes);
 router.route('/rooms')
   .get(roomController.index)
   .post(roomController.create);
-  
+
 router.route('/rooms/:id')
   .get(roomController.show)
   .put(roomController.update)
@@ -31,8 +31,8 @@ router.route('/users')
 
 router.route('/users/:id')
   .get(userController.show)
-  .put(userController.update)
-  .delete(userController.delete);
+  .put(userController.update);
+//.delete(userController.delete);
 
 router.route('/register')
   .post(authController.register);

@@ -15,7 +15,7 @@ function roomsUpdate(req, res, next) {
 }
 
 function roomsShow(req, res, next) {
-  Room.find(req.params.id)
+  Room.findById(req.params.id)
     .then(room => res.json(room))
     .catch(next);
 }
