@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const errorHandler = require('./lib/errorHandler');
 const app = express();
 const mongoose = require('mongoose');
-const { dbUri, port } = require('./config/environment');
+const { dbUri } = require('./config/environment');
 mongoose.Promise = require('bluebird');
 mongoose.connect(dbUri);
 
@@ -19,4 +19,4 @@ app.get('/*', (req, res) => res.sendFile(`${__dirname}/public/index.html`));
 
 // errorHandler MUST go after Router!!!
 app.use(errorHandler);
-app.listen(port, () => console.log(`Express is listening on ${port}`));
+app.listen(4001, () => console.log('Express is listening on 4001'));

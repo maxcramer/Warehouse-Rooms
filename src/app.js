@@ -20,7 +20,6 @@ import RoomsIndex from './components/rooms/Index';
 import RoomsEdit from './components/rooms/Edit';
 import RoomsShow from './components/rooms/Show';
 
-
 class App extends React.Component {
   render() {
     return(
@@ -44,5 +43,5 @@ class App extends React.Component {
 ReactDOM.render(
   <BrowserRouter>
     <App />
-  </BrowserRouter>
-);
+  </BrowserRouter>,
+  document.getElementById('root'));
